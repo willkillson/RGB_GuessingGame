@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <!--
+
+        Bootstrap CDN
+
+    -->
+
+    <link 
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+    <!--
+
+        My CSS
+
+    -->
+
+    <style>
+    
+    body{
+        background: black;
+    }
+
+
+    h1{
+        text-align: center;
+        color: white;
+        margin:0rem;
+    }
+
+    .menuButtons{
+        background: white;
+        margin: 0rem;
+        
+    }
+
+    .gameButtons{
+        border-radius: 1rem;
+        width: 8rem;
+        height: 8rem;
+        margin-top: 1rem;
+    }
+
+    
+    </style>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color Game</title>
+</head>
+<body>
+
+    <h1 style= "background: blue">
+        <div>THE GREAT</div>
+        <div id="rgb">RGB</div>
+        <div>GUESSING GAME</div>
+    </h1>
+
+
+    <!--    
+        Example pulled from
+
+        https://getbootstrap.com/docs/4.4/layout/grid/
+
+    -->
+
+    <div style="background:white;">
+        <div class="container" style="display: block; width: fit-content;">
+            <div class="row">
+                <div class="col- px-1 menuButtons" id="newColors" style="border: 0.2rem solid green;">
+                NEW COLORS
+                </div>
+                <div class="col- px-1 menuButtons" id="tryAgain" style = "border: 0.2rem solid red">
+                Try Again
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container" style="display:block; width:fit-content;">
+        <div class="row">
+            <div class="col- px-1">
+            <h1 id = "b1" class="gameButtons" style = "background: purple"></h1>
+            <h1 id = "b4" class="gameButtons"></h1>
+            </div>
+            <div class="col- px-1">
+            <h1 id = "b2" class="gameButtons"></h1>
+            <h1 id = "b5" class="gameButtons"></h1>
+            </div>
+            <div class="col- px-1">
+            <h1 id = "b3" class="gameButtons"></h1>
+            <h1 id = "b6" class="gameButtons"></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <!--
+
+        BOOTSTRAP DEPENDENCIES
+        
+    -->
+    <script 
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+    crossorigin="anonymous"></script>
+    <script 
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+    crossorigin="anonymous"></script>
+    <script 
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+    crossorigin="anonymous"></script>
+  
+    <!--
+
+        My Script
+
+    -->
+    <script>
+
+        function generateRGB(){
+            var colorArray = [];
+            var r = Math.floor(Math.random()*256);
+            var g = Math.floor(Math.random()*256);
+            var b = Math.floor(Math.random()*256);
+            colorArray.push(r);
+            colorArray.push(g);
+            colorArray.push(b);
+           
+            return colorArray;
+        }
+
+        function colorButtons(){
+            var colorArray = generateRGB();
+
+  
+            document.getElementById("b1").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            colorArray = generateRGB();
+            document.getElementById("b2").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            colorArray = generateRGB();
+            document.getElementById("b3").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            colorArray = generateRGB();
+            document.getElementById("b4").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            colorArray = generateRGB();
+            document.getElementById("b5").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            colorArray = generateRGB();
+            document.getElementById("b6").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+        }
+
+        function initGame(){
+
+            document.querySelector("#tryAgain").style.visibility = "hidden";
+            var rgb = document.querySelector("#rgb");
+            var c = generateRGB();
+            rgb.textContent = "RGB("+c[0]+','+c[1]+','+c[2]+")";
+            colorButtons();
+            number = Math.floor(Math.random()*6)+1;
+            correctButton = "b"+number;
+            document.getElementById(correctButton).style.background = "rgb("+c[0]+","+c[1]+","+c[2]+")";
+        
+        
+            for(var i = 0;i< buttons.length;i++){
+            buttons[i].style.visibility = "visible";
+            }
+        
+        }
+
+
+        var number;
+        var correctButton;
+        var buttons = document.querySelectorAll(".gameButtons");
+
+        document.querySelector("#newColors").addEventListener("click", function(){
+            initGame();
+        });
+
+
+        initGame();
+        
+
+        
+
+ 
+        for(var i = 0;i< buttons.length;i++){
+            buttons[i].addEventListener("click", function(){
+                console.log(number+" : "+this.id[1]);
+
+
+                if(number==this.id[1]){
+                    console.log("CORRECT!");
+                    initGame();
+                }
+                else{
+                    this.style.visibility = "hidden";
+                    document.querySelector("#tryAgain").style.visibility = "visible";
+
+                }
+
+            });
+        }
+
+
+
+
+
+    
+    </script>
+
+
+</body>
+</html>
