@@ -149,17 +149,17 @@
             var colorArray = generateRGB();
 
   
-            document.getElementById("b1").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            document.getElementById("b1").style.backgroundColor = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
             colorArray = generateRGB();
-            document.getElementById("b2").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            document.getElementById("b2").style.backgroundColor = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
             colorArray = generateRGB();
-            document.getElementById("b3").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            document.getElementById("b3").style.backgroundColor = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
             colorArray = generateRGB();
-            document.getElementById("b4").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            document.getElementById("b4").style.backgroundColor = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
             colorArray = generateRGB();
-            document.getElementById("b5").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            document.getElementById("b5").style.backgroundColor = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
             colorArray = generateRGB();
-            document.getElementById("b6").style.background = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
+            document.getElementById("b6").style.backgroundColor = "rgb("+colorArray[0]+","+colorArray[1]+","+colorArray[2]+")";
         }
 
         function initGame(){
@@ -171,7 +171,7 @@
             colorButtons();
             number = Math.floor(Math.random()*6)+1;
             correctButton = "b"+number;
-            document.getElementById(correctButton).style.background = "rgb("+c[0]+","+c[1]+","+c[2]+")";
+            document.getElementById(correctButton).style.backgroundColor = "rgb("+c[0]+","+c[1]+","+c[2]+")";
         
         
             for(var i = 0;i< buttons.length;i++){
